@@ -20,8 +20,8 @@
 package io.github.jhipster.service.filter;
 
 import com.google.common.collect.Lists;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class FilterTest {
         }
     };
 
-    @Before
+    @BeforeEach
     public void setup() {
         filter = new Filter<Object>();
     }
@@ -50,6 +50,16 @@ public class FilterTest {
         assertThat(filter.getSpecified()).isNull();
         assertThat(filter.getIn()).isNull();
         assertThat(filter.toString()).isEqualTo("Filter []");
+    }
+
+    @Test
+    public void testCopy() {
+        final Filter<Object> copy = filter.copy();
+        assertThat(copy).isNotSameAs(filter);
+        assertThat(copy.getEquals()).isNull();
+        assertThat(copy.getSpecified()).isNull();
+        assertThat(copy.getIn()).isNull();
+        assertThat(copy.toString()).isEqualTo("Filter []");
     }
 
     @Test

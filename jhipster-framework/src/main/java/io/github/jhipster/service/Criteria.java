@@ -16,31 +16,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.jhipster.service.filter;
+package io.github.jhipster.service;
 
 /**
- * Class for filtering attributes with {@link Boolean} type. It can be added to a criteria class as a member, to support
- * the following query parameters:
- * <pre>
- *      fieldName.equals=true
- *      fieldName.specified=true
- *      fieldName.specified=false
- *      fieldName.in=true,false
- * </pre>
+ * Implementation should usually contain fields of Filter instances.
  */
-public class BooleanFilter extends Filter<Boolean> {
-
-    private static final long serialVersionUID = 1L;
-
-    public BooleanFilter() {
-    }
-
-    public BooleanFilter(final BooleanFilter filter) {
-        super(filter);
-    }
-
-    public BooleanFilter copy() {
-        return new BooleanFilter(this);
-    }
-
+public interface Criteria {
+    /**
+     * @return a new criteria with copied filters
+     */
+    Criteria copy();
 }

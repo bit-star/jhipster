@@ -19,8 +19,8 @@
 
 package io.github.jhipster.config;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 import java.util.*;
@@ -32,7 +32,7 @@ public class JHipsterPropertiesTest {
 
     private JHipsterProperties properties;
 
-    @Before
+    @BeforeEach
     public void setup() {
         properties = new JHipsterProperties();
     }
@@ -584,6 +584,16 @@ public class JHipsterPropertiesTest {
         val++;
         obj.setReportFrequency(val);
         assertThat(obj.getReportFrequency()).isEqualTo(val);
+    }
+
+    @Test
+    public void testLoggingUseJsonFormat() {
+        JHipsterProperties.Logging obj = properties.getLogging();
+        boolean val = JHipsterDefaults.Logging.useJsonFormat;
+        assertThat(obj.isUseJsonFormat()).isEqualTo(val);
+        val = true;
+        obj.setUseJsonFormat(val);
+        assertThat(obj.isUseJsonFormat()).isEqualTo(val);
     }
 
     @Test

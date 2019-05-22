@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.github.jhipster</groupId>
         <artifactId>jhipster-dependencies</artifactId>
-        <version>3.0.0-SNAPSHOT</version>
+        <version>3.0.2-SNAPSHOT</version>
         <relativePath>../jhipster-dependencies/pom.xml</relativePath>
     </parent>
 
@@ -50,10 +50,12 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-bean-validators</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>javax.cache</groupId>
@@ -82,6 +84,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -124,6 +127,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                   <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -178,10 +192,16 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-core</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
         </dependency>
     </dependencies>
 

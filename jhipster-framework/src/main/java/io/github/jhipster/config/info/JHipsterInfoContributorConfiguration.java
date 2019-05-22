@@ -23,6 +23,7 @@ import org.springframework.boot.actuate.autoconfigure.info.ConditionalOnEnabledI
 import org.springframework.boot.actuate.autoconfigure.info.InfoContributorAutoConfiguration;
 import org.springframework.boot.actuate.info.InfoContributor;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -32,10 +33,11 @@ import org.springframework.core.env.ConfigurableEnvironment;
  */
 @Configuration
 @AutoConfigureAfter(InfoContributorAutoConfiguration.class)
+@ConditionalOnClass(InfoContributor.class)
 public class JHipsterInfoContributorConfiguration {
 
     @Bean
-    @ConditionalOnEnabledInfoContributor("management.info.active-profiles.enabled")
+    @ConditionalOnEnabledInfoContributor("active-profiles")
     public ActiveProfilesInfoContributor activeProfilesInfoContributor(
         ConfigurableEnvironment environment) {
         return new ActiveProfilesInfoContributor(environment);

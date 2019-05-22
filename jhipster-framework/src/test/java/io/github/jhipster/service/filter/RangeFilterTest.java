@@ -20,8 +20,8 @@
 package io.github.jhipster.service.filter;
 
 import com.google.common.collect.Lists;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class RangeFilterTest {
 
     private Short value = 42;
 
-    @Before
+    @BeforeEach
     public void setup() {
         filter = new RangeFilter<Short>();
     }
@@ -49,6 +49,20 @@ public class RangeFilterTest {
         assertThat(filter.getSpecified()).isNull();
         assertThat(filter.getIn()).isNull();
         assertThat(filter.toString()).isEqualTo("RangeFilter []");
+    }
+
+    @Test
+    public void testCopy() {
+        final RangeFilter<Short> copy = filter.copy();
+        assertThat(copy).isNotSameAs(filter);
+        assertThat(copy.getEquals()).isNull();
+        assertThat(copy.getGreaterThan()).isNull();
+        assertThat(copy.getGreaterOrEqualThan()).isNull();
+        assertThat(copy.getLessThan()).isNull();
+        assertThat(copy.getLessOrEqualThan()).isNull();
+        assertThat(copy.getSpecified()).isNull();
+        assertThat(copy.getIn()).isNull();
+        assertThat(copy.toString()).isEqualTo("RangeFilter []");
     }
 
     @Test
